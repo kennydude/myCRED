@@ -814,7 +814,7 @@ if ( ! function_exists( 'mycred_get_users_history_data' ) ) :
 		$stats_key = md5( $user_id . $point_type . $period . $number . $order );
 		$cache     = mycred_get_user_meta( $user_id, $point_type . '_stats', $stats_key );
 
-		if ( empty($cache) ) {
+		if ( empty($cache) || !is_array($cache) ) {
 
 			global $wpdb, $mycred_log_table;
 
